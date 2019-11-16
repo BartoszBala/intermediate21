@@ -1,9 +1,10 @@
-package pl.sda.intermediate;
+package pl.sda.intermediate.PlayLists;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 
 public class Playlist extends Playable {
@@ -31,18 +32,21 @@ public class Playlist extends Playable {
             Collections.shuffle(playableListCopy);
             return playElements(playableListCopy);
         } else {
-            String listOut = ""; //fixme -> stream
-            for (int i = 0; i < OUR_DEFINITION_OF_LOOP; i++) {
-                listOut += playElements(playableList);
-            }
-            return listOut;
+//            String listOut = ""; //fixme -> stream
+//            for (int i = 0; i < OUR_DEFINITION_OF_LOOP; i++) {
+//                listOut += playElements(playableList);
+//            }
+//            return listOut;
+
+        return    IntStream.iterate(1,a->a+1).limit(10)
+                    .mapToObj(e->playElements(playableList)).collect(Collectors.joining());
         }
     }
 
     private String playElements(List<Playable> playableList) {
         return playableList.stream()
                 .map(x -> x.play())
-                .collect(Collectors.joining("\n")); //fixme
+                .collect(Collectors.joining("\n","","\n")); //fixme
 
 //        String playedList = ""; //to samo co wyżej ^
 //        for (Playable playable : playableList) {

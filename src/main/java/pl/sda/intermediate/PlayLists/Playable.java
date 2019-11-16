@@ -1,4 +1,4 @@
-package pl.sda.intermediate;
+package pl.sda.intermediate.PlayLists;
 
 public class Playable {
 

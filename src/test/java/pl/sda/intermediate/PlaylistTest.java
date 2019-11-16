@@ -1,16 +1,18 @@
 package pl.sda.intermediate;
 
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import pl.sda.intermediate.PlayLists.Movie;
+import pl.sda.intermediate.PlayLists.Music;
+import pl.sda.intermediate.PlayLists.PlayMode;
+import pl.sda.intermediate.PlayLists.Playlist;
 
 class PlaylistTest {
 
     @RepeatedTest(10)
     void shouldPlaySequentially() {
         Playlist playlist = new Playlist();
-playlist.setOrder(PlayMode.RANDOM);
+
+        playlist.setOrder(PlayMode.LOOP);
         Music m1 = new Music("Rolling Stones", "Brown Suger");
         Movie mv1 = new Movie("Casablanca");
         Movie mv2 = new Movie("Titanic");
